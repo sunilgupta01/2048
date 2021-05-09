@@ -36,3 +36,15 @@ You can find the same information in the [contributing guide.](https://github.co
 
 ## Donations
 I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
+
+## build multi-arch image
+
+```
+### first command so that buildx could create images
+docker buildx create --use
+### to resolve proxy
+### added follwoing to /etc/resolv.conf
+nameserver 8.8.8.8
+
+docker buildx build --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push -t sunilgupta01/2048:latest .
+```
